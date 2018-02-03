@@ -1,0 +1,54 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/myApp/myApp.js"></script>
+</head>
+<body data-ng-app="myApp" data-ng-controller="productController">
+
+    <div>
+        nombre:<input type="text" name="product.name" data-ng-model="product.name"/><br />
+        código:<input type="text" name="product.code" data-ng-model="product.code" /><br />
+        Descripción:<input type="text" name="product.decription" data-ng-model="product.decription" /><br />
+        stock:<input type="number" name="product.stock" data-ng-model="product.stock" /><br />
+        <br />
+        <input type="button" value="Cancelar" name="btnSave" data-ng-click="cancel()" />
+    <input type="button" value="{{btnValue}}" name="btnSave" data-ng-click="saveProduct(product)" />
+        <br />
+    </div>
+
+
+    <div > 
+        <table>
+            <tr>
+                <th>id</th>
+                <th>Nombre</th>
+                <th>Codigo</th>
+                <th>Descripción</th>
+                <th>Stock</th>
+                <th>Acciones</th>
+            </tr>
+            <tr data-ng-repeat="product in pruductsList">
+                <td>{{product.id}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.code}}</td>
+                <td>{{product.decription}}</td>
+                <td>{{product.stock}}</td>
+                <td>
+                    <button data-ng-click="editProduct(product.id)">Editar</button>
+                    <button data-ng-click="deleteProduct(product.id)">Eliminar</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
